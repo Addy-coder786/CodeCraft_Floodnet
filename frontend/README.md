@@ -1,16 +1,20 @@
-# React + Vite
+# FloodNet dashboard (frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Vite + Leaflet + three.js dashboard for FloodNet. It talks to the FastAPI backend in `../backend` over
+`/api/*`. Setup and the full project overview: [root README](../README.md).
 
-Currently, two official plugins are available:
+```bash
+npm ci
+npm run build      # production build in dist/, served by the backend at http://localhost:8000/static/
+npm run dev        # dev server on :5173 with hot reload; proxies /api to the backend on :8000
+npm run test:unit  # unit tests (src/**/*.test.mjs)
+npm run lint       # oxlint
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| Path | Contents |
+|---|---|
+| `src/components/` | UI components (map, timeline, panels, 3D terrain, guided briefing) |
+| `src/lib/` | Shared logic: run bundles, alerts, rainfall source labels, story stages, terrain helpers |
+| `src/state/FloodNetContext.jsx` | App-wide state and API calls |
+| `src/api/client.js` | API client; `VITE_API_BASE_URL` only when the API is on another origin |
+| `public/` | Browser icons |
