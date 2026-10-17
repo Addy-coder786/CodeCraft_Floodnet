@@ -38,3 +38,6 @@ data/raw/
 
 # editor settings
 .vscode/
+
+# Claude Code local state
+.claude/
