@@ -1,0 +1,198 @@
+/* ── Command centre masthead ─────────────────────────── */
+.header {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  height: 48px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  gap: 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border);
+  border-top-color: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow-panel);
+}
+
+/* ── Left: Brand ─────────────────────────────────────── */
+.leftCol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.brandBtn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+/* Borderless/transparent button -- give it an explicit focus ring so keyboard users can see it
+   against the near-opaque ivory masthead. Matches .btn:focus-visible in index.css. */
+.brandBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* Animated operational status dot */
+.brandDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 0 rgba(122,34,49,0.5);
+}
+.brandDotPulse {
+  animation: pulse-ring 1.4s ease-in-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(122,34,49,0.6); }
+  60%  { box-shadow: 0 0 0 5px rgba(122,34,49,0.0); }
+  100% { box-shadow: 0 0 0 0 rgba(122,34,49,0.0); }
+}
+
+.brandMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.brandSub {
+  font-size: 9px;
+  color: var(--text-faint);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.overviewBtn {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: var(--radius-xs);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.overviewBtn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.overviewBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Centre: Location ─────────────────────────────────── */
+.centerCol {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Right: Status + Data Source ─────────────────────── */
+.rightCol {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+/* --text-faint is ~3.0:1 on the ivory masthead; these identify/carry data the operator must read,
+   so they use --text-dim (~5.8:1). .brandSub stays faint -- it is decorative brand chrome. */
+.metaLabel {
+  font-size: 8.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+
+.metaValue {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  font-family: var(--mono);
+  /* long source names (e.g. the radar-derived and live+persistence labels) truncate instead of widening
+     the masthead; the full text is in the title tooltip */
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metaDivider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.statusDotOk    { background: var(--real); box-shadow: 0 0 5px rgba(34,197,94,0.4); }
+.statusDotBusy  { background: var(--accent); animation: pulse-ring 1.2s infinite; }
+.statusDotBad   { background: var(--sev-critical); }
+.statusDotStale { background: var(--amber); }
+
+.timestepAccent {
+  color: var(--accent-bright);
+  font-weight: 700;
+  font-family: var(--mono);
+}
+
+.metaSub {
+  font-size: 10px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+}
+
+.metaDim {
+  color: var(--text-dim);
+  font-family: var(--mono);
+}
