@@ -4,6 +4,12 @@ FloodNet forecasts **street-level flooding 0–3 hours ahead** for a ~4.7 km² p
 **Hindmata / Dadar–Parel–Matunga, Mumbai**. It couples rainfall, terrain and the real underground stormwater
 network in one simulation, then shows the result on a web dashboard and uses it to suggest flood-aware routes.
 
+### 🌐 Live demo: **[code-craft-floodnet.vercel.app](https://code-craft-floodnet.vercel.app/)**
+
+Hosted on Vercel (Mumbai region). Scenarios, the 2005 replay, the ECMWF forecast and the radar-derived source work
+there; **live IMD rainfall is not enabled** on the demo (it needs an IP-registered IMD key — see
+[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)). A full 180-minute run can take a minute or more.
+
 ```
 rainfall ──► runoff ──► 2D surface flow on a 10 m terrain grid ⇄ drainage network (pipe capacity, surcharge, blockage)
                                         │
@@ -147,7 +153,8 @@ Everything works without configuration. Optional settings go in a `.env` file at
 | `FLOODNET_CORS_ORIGINS` | Allowed origins when the frontend is hosted separately |
 
 **Never commit `.env`** — it is git-ignored. Never put secrets in `VITE_*` variables; Vite embeds them in the
-public JavaScript bundle. Deployment (Vercel / Docker): [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+public JavaScript bundle. Deployment (Vercel / Docker): [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). The public demo
+at <https://code-craft-floodnet.vercel.app/> is the all-in-one Vercel deployment described there.
 
 ## Data and provenance
 
