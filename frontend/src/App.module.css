@@ -1,0 +1,157 @@
+.dashboardContainer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg-app);
+}
+
+.landingContainer {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--bg-app);
+}
+
+.root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.mapLayer {
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Left operator console ─────────────────────────────── */
+.leftPanel {
+  position: absolute;
+  top: 66px;
+  bottom: 126px;
+  width: 300px;
+  z-index: 800;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 15px 16px;
+  gap: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border);
+  border-top-color: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow-panel);
+}
+
+/* ── Right decision panel ─────────────────────────────── */
+.rightPanel {
+  position: absolute;
+  top: 66px;
+  bottom: 126px;
+  width: 348px;
+  z-index: 800;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border);
+  border-top-color: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow-panel);
+}
+
+/* ── Tab strip ────────────────────────────────────────── */
+.tabStrip {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding: 5px 7px;
+  flex: 0 0 auto;
+  gap: 2px;
+  background: rgba(255,255,255,0.02);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabStrip::-webkit-scrollbar { display: none; }
+
+.tabBtn {
+  flex: 1 0 auto;
+  min-width: max-content;
+  padding: 5px 9px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+}
+.tabBtn:hover {
+  color: var(--text-dim);
+  background: var(--bg-hover);
+}
+.tabBtn:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+.tabBtnActive {
+  color: var(--accent-bright);
+  background: var(--accent-subtle);
+  border-color: var(--accent-line);
+  font-weight: 700;
+}
+
+/* ── Tab panels ───────────────────────────────────────── */
+.tabPanel {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  padding: 13px 14px 16px;
+  min-height: 0;
+  background: transparent;
+}
+.tabPanelActive {
+  display: flex;
+  animation: fade-in 0.12s ease-out;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 1500px) {
+  .leftPanel  { width: 278px; }
+  .rightPanel { width: 330px; }
+}
+@media (max-width: 1380px) {
+  .leftPanel  { width: 260px; padding: 11px 12px 14px; }
+  .rightPanel { width: 316px; }
+  .tabPanel   { padding: 11px 12px 14px; }
+}
+
+.mapFill { position: absolute; inset: 0; }
+.mapLoading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9edf0;
+  font-size: 12px;
+  color: var(--text-dim);
+}
