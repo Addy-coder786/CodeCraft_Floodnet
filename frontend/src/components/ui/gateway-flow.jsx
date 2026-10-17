@@ -46,7 +46,7 @@ const GATEWAY_FLOW_DEFAULTS = {
 }
 
 // FloodNet adaptation: was the generic "#eef1f6" -- now the project's actual warm-ivory token
-// value (see frontend-react/src/index.css's --bg-app), so the iframe's own background matches
+// value (see frontend/src/index.css's --bg-app), so the iframe's own background matches
 // the hero seamlessly instead of introducing a second, slightly different light background.
 const LIGHT_PAPER = '#F7F2E9'
 

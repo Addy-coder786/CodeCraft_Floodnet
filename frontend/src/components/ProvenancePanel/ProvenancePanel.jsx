@@ -137,7 +137,7 @@ export default function ProvenancePanel() {
             <div className={styles.attribution}>{provenance.attribution.join(' · ')}</div>
           )}
           <div className={styles.footer}>
-            Decision-support prototype (SIH26085). Simplified 2D surface physics and a capacity-limited drainage
+            Decision-support prototype (FloodNet). Simplified 2D surface physics and a capacity-limited drainage
             solver; depths carry terrain and parameter uncertainty.
           </div>
         </div>

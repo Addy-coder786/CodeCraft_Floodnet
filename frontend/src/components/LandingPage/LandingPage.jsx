@@ -565,7 +565,7 @@ export default function LandingPage({ onEnter, onExplore, onOpenStage, isTransit
       <footer className={styles.footer}>
         <div className={styles.footerLeft}>
           <span className={styles.footerBrand}>FloodNet</span>
-          <span className={styles.footerTagline}>SIH26085 — Urban Flood Nowcasting System</span>
+          <span className={styles.footerTagline}>FloodNet — Urban Flood Nowcasting System</span>
         </div>
         <div className={styles.footerRight}>
           Municipal Corporation of Greater Mumbai (MCGM) Pilot Environment &middot; All Rights Reserved

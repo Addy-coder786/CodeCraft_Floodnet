@@ -3,7 +3,7 @@
 // Two sources, both REAL data already available on the client -- no new backend endpoint, no fabricated
 // results, no third-party geocoder:
 //
-//  1. PILOT_AREAS (frontend-react/src/components/LocationSelector/LocationSelector.jsx) -- the 4 hand-picked
+//  1. PILOT_AREAS (frontend/src/components/LocationSelector/LocationSelector.jsx) -- the 4 hand-picked
 //     landmarks already shown/used in Header's location selector. Reused verbatim (same coordinates), not
 //     duplicated or re-derived.
 //  2. Named OSM road segments from the `roads` FeatureCollection already fetched into FloodNetContext via

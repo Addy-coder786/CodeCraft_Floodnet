@@ -1,6 +1,6 @@
 // FloodNet API client -- the ONLY place fetch() is called from. Every backend contract used by the UI is
 // listed here so a schema change only needs updating in one place. Endpoints and response shapes were read
-// directly from backend/floodnet/api/main.py and schemas.py before writing this file (SIH26085 rule: don't
+// directly from backend/floodnet/api/main.py and schemas.py before writing this file (project rule: don't
 // guess response schemas).
 //
 // Units returned by the backend: rainfall mm/h, depth cm (already converted from internal metres at the API
